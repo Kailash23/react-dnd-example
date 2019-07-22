@@ -3,8 +3,8 @@ import "./App.css";
 import Item from "./Item";
 import Target from "./Target";
 
-import HTML5BACKEND from 'react-dnd-html5-backend';
-import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+import { DndProvider } from 'react-dnd';
 
 class App extends Component {
   
@@ -28,28 +28,30 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="App-intro">
-          <div className="app-container">
-            <div className="item-container">
-              {
-                this.state.items.map(item => (
-                  <Item 
-                    key={item.id} 
-                    item={item} 
-                    handleDrop={
-                      (id) => this.deleteItem(id)
-                    }
-                  />
-                ))
-              }
+      <DndProvider backend={HTML5Backend}>
+        <div className="App">
+          <div className="App-intro">
+            <div className="app-container">
+              <div className="item-container">
+                {
+                  this.state.items.map(item => (
+                    <Item 
+                      key={item.id} 
+                      item={item} 
+                      handleDrop={
+                        (id) => this.deleteItem(id)
+                      }
+                    />
+                  ))
+                }
+              </div>
+              <Target />
             </div>
-            <Target />
           </div>
         </div>
-      </div>
+      </DndProvider>        
     );
   }
 }
 
-export default DragDropContext(HTML5BACKEND)(App);  // HOC
+export default App;  // HOC
