@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## React-dnd example 
 
-A Drag and drop example.
+A drag and drop example.
 
 In the project directory, you can run:
 
