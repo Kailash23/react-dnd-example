@@ -49,7 +49,7 @@ class Item extends Component {
     if(isDragging && item){
       console.log('Dragging this - ', item);  
     } else {
-      console.log(item, 'is not dragging');
+      console.log(item, ' is not dragging');
     }
 
     return connectDragSource (

@@ -5,6 +5,8 @@ import Target from "./Target";
 
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DndProvider } from 'react-dnd';
+import MultiBackend from 'react-dnd-multi-backend';
+import HTML5toTouch from 'react-dnd-multi-backend/lib/HTML5toTouch';
 
 class App extends Component {
   
@@ -28,7 +30,7 @@ class App extends Component {
 
   render() {
     return (
-      <DndProvider backend={HTML5Backend}>
+      <DndProvider backend={MultiBackend(HTML5toTouch)}>
         <div className="App">
           <div className="App-intro">
             <div className="app-container">
@@ -54,4 +56,4 @@ class App extends Component {
   }
 }
 
-export default App;  // HOC
+export default App;  
